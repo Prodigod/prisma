@@ -1,0 +1,62 @@
+@port=3000
+@host=http://localhost:{{port}}
+
+
+### GET access
+GET {{host}}/
+
+### GET all employees
+GET {{host}}/employees
+
+### Get unique employee 
+GET {{host}}/employees/2
+
+### Send 400 if employee does not exist.
+GET {{host}}/employees/15
+
+### Add a new employee with name
+POST {{host}}/employees/
+Content-Type: application/json
+
+{
+  "title": "Jerome Butler"
+}
+
+### Send 404 if incorrect.
+POST {{host}}/employees/
+Content-Type: application/json
+
+{
+  "tile": "Jerome Butler"
+}
+
+### Update employee with specific id
+PUT {{host}}/employees/5
+Content-Type: application/json
+
+{
+    "title": "Gerald Ford"
+}
+
+
+
+### Return 404 when updating employee incorrectly.
+PUT {{host}}/employees/5
+Content-Type: application/json
+
+{
+    "ttle": "Gerald Ford"
+}
+
+
+### Delete employee with a uniqueId
+DELETE {{host}}/employees/10
+Content-Type: application/json
+
+
+
+### Attempt to delete employee that does not exist.
+DELETE {{host}}/employees/0
+ 
+
+
